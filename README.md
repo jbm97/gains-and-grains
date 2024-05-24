@@ -18,40 +18,22 @@ User would like to:
 
 ## Wireframe
 
-![first draft](./ReadMeImgs/p2wireframe1.png)
+![first draft](./readMeImg/p2wireframe1.png)
 
 ## ERD
 
-User
-----
-id
-username
-email
-password
-profileInfo
+### User
 
-Workout
--------
-id
-userId
-type
-duration
-intensity
-dateOfWorkout
+id, username, email, password, profileInfo
 
-Goal
-----
-id
-userId
-type
-target
-currentProgress
+### Workout
 
-FoodLog
--------
-id
-userId
-foodName
-calories
-mealType (breakfast, lunch, dinner, snack)
-dateConsumed
+id, userId, type, duration, intensity, dateOfWorkout
+
+### Goal
+
+id, userId, type, target, currentProgress
+
+### FoodLog
+
+id, userId, foodName, calories, mealType (breakfast, lunch, dinner, snack), dateConsumed
