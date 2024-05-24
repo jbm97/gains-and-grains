@@ -18,7 +18,7 @@ User would like to:
 
 ## Wireframe
 
-![first draft](./ReadMeImgs/p2wireframe1.png)
+![first draft](./ReadMeImg/p2wireframe1.png)
 
 ## ERD
 
