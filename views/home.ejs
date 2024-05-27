@@ -30,18 +30,21 @@
             <a class="logo" href="/"><img src="" alt="logo" /></a>
             <nav>
                 <ul class="nav_links">
-                    <li><a class="c" href="/">Home</a></li>
+                    <li><a class="navlink" href="/">Home</a></li>
                     <% if(!currentUser) { %>
-                    <li><a href="/auth/login">Log In</a></li>
-                    <li><a href="/auth/signup">Sign Up</a></li>
+                    <li><a class="navlink" href="/auth/login">Log In</a></li>
+                    <li><a class="navlink" href="/auth/signup">Sign Up</a></li>
                     <% } else { %>
-                    <li><a href="/dashboard">Dashboard</a></li>
-                    <li><a href="/auth/logout">Logout</a></li>
+                    <li><a class="navlink" href="/dashboard">Dashboard</a></li>
+                    <li><a class="navlink" href="/auth/logout">Logout</a></li>
                     <% } %>
+                    <li><a class="navlink" href="#about">About</a></li>
+                    <li><a class="cta cont" href="/contact">Contact</a></li>
                 </ul>
             </nav>
             <p class="menu cta">Menu</p>
         </header>
+
         <div id="mobile_menu" class="overlay">
             <a class="close">&times;</a>
             <div class="overlay_content">

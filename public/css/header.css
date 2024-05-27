@@ -37,6 +37,10 @@ nav {
     text-decoration: none;
 }
 
+.nav_links li a:not(.navlink) {
+    color: var(--bg-color);
+}
+
 .nav_links {
     list-style: none;
     display: flex;
@@ -55,13 +59,12 @@ nav {
     transition: all 0.3s ease 0s;
 }
 
-.nav_links li a:hover {
+.nav_links li a:not(.cta):hover {
     color: var(--accent-color);
 }
 
 .cta {
     order: 2;
-    margin-left: 20px;
     padding: 9px 25px;
     background-color: var(--main-color);
     border: none;
