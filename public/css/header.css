@@ -1,0 +1,151 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: "Poppins", sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 10%;
+    background-color: var(--bg-color);
+}
+
+.logo {
+    cursor: pointer;
+    order: 3;
+    margin-left: auto;
+}
+
+nav {
+    order: 1;
+}
+
+.nav_links a,
+.cta,
+.overlay_content a {
+    font-weight: 500;
+    color: var(--main-color);
+    text-decoration: none;
+}
+
+.nav_links {
+    list-style: none;
+    display: flex;
+    font-size: 16px;
+}
+
+.nav_links li {
+    padding: 0px 20px;
+}
+
+.nav_links li:nth-child(1) {
+    padding: 0 20px 0 0;
+}
+
+.nav_links li a {
+    transition: all 0.3s ease 0s;
+}
+
+.nav_links li a:hover {
+    color: var(--accent-color);
+}
+
+.cta {
+    order: 2;
+    margin-left: 20px;
+    padding: 9px 25px;
+    background-color: var(--main-color);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.cta:hover {
+    background-color: var(--accent-color);
+}
+
+/* Mobile Nav */
+
+.menu {
+    display: none;
+    color: var(--bg-color);
+}
+
+.overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    background-color: var(--bg-color);
+    overflow-x: hidden;
+    transition: all 0.5s ease 0s;
+}
+
+.overlay--active {
+    width: 100%;
+}
+
+.overlay_content {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlay a {
+    padding: 15px;
+    font-size: 36px;
+    display: block;
+    transition: all 0.3s ease 0s;
+    color: var(--main-color);
+}
+
+.overlay a:hover,
+.overlay a:focus {
+    color: var(--accent-color);
+}
+.overlay .close {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+    color: var(--accent-color);
+}
+
+.overlay .close:hover {
+    cursor: pointer;
+}
+
+@media screen and (max-height: 450px) {
+    .overlay a {
+        font-size: 20px;
+    }
+    .overlay .close {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .nav_links,
+    .cta {
+        display: none;
+    }
+    .menu {
+        display: initial;
+    }
+}
