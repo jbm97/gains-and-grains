@@ -15,23 +15,24 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 22px 10%;
+    padding: 22px 7%;
     background-color: var(--bg-color);
-}
-
-.logo {
-    cursor: pointer;
-    order: 3;
-    margin-left: auto;
 }
 
 nav {
     order: 1;
 }
 
+.logo {
+    cursor: default;
+    order: 3;
+    margin-left: auto;
+}
+
 .nav_links a,
 .cta,
 .overlay_content a {
+    font-size: 82%;
     font-weight: 500;
     color: var(--main-color);
     text-decoration: none;
