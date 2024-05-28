@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Gains & Grains Log In</title>
         <link rel="icon" type="image/png" href="/img/smalllogo.png" />
-        <link rel="stylesheet" href="/css/loginSignup.css" />
+        <link rel="stylesheet" href="/css/login.css" />
         <link rel="stylesheet" href="/css/header.css" />
     </head>
     <body>
@@ -57,17 +57,28 @@
             </div>
         </div>
 
-        <section class="contact" id="contact">
-            <h2 class="heading"><span>Login!</span></h2>
-
-            <form action="/auth/login" method="POST">
-                <div class="input-box">
-                    <input type="email" placeholder="Email" name="email" />
-                    <input type="password" placeholder="Password" name="password" />
-                </div>
-                <input type="submit" value="Login" class="btn" />
-            </form>
-        </section>
+        <section class="signup">
+          <div class="container">
+              <div class="title">USER LOG IN</div>
+              <div class="content">
+                  <form action="/auth/login" method="POST">
+                      <div class="user-details">
+                          <div class="input-box">
+                              <span class="details">Username</span>
+                              <input type="text" placeholder="Enter your username" required />
+                          </div>
+                          <div class="input-box">
+                              <span class="details">Password</span>
+                              <input type="password" placeholder="Enter your password" required />
+                          </div>
+                      </div>
+                      <div class="button">
+                          <input type="submit" value="LOG IN NOW" />
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </section>
 
         <script src="/js/mobilemenu.js"></script>
     </body>
