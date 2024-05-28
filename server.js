@@ -44,9 +44,14 @@ app.use("/auth", require("./controllers/auth"));
 // app.use('/', require('./controllers/pokemon'));
 
 // --- AUTHENTICATED ROUTE: go to user profile page ---
-app.get("/profile", isLoggedIn, (req, res) => {
+app.get("/user/profile", isLoggedIn, (req, res) => {
     const { name, email, phone } = req.user;
     res.render("profile", { name, email, phone });
+});
+
+app.get("/user/dashboard", isLoggedIn, (req, res) => {
+    const { name, email, phone } = req.user;
+    res.render("dashboard", { name, email, phone });
 });
 
 // any authenticated route will need to have isLoggedIn before controller

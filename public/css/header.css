@@ -11,6 +11,16 @@
     font-family: "Poppins", sans-serif;
 }
 
+:root {
+    --bg-color: #ffffff;
+    --second-bg-color: #f0f0f0;
+    --text-color: #292929;
+    --main-color: #007bff;
+    --accent-color: #ff6347;
+    --muted-color: #6c757d;
+    --highlight-color: #28a745;
+}
+
 header {
     display: flex;
     justify-content: space-between;
