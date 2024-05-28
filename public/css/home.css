@@ -281,3 +281,12 @@ span {
     border: 1px solid var(--main-color);
     color: var(--accent-color);
 }
+
+.carousel .list .item .buttons button a {
+    color: inherit;
+}
+
+.carousel .list .item .buttons button a:visited,
+.carousel .list .item .buttons button a:hover {
+    color: inherit;
+}
