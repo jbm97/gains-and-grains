@@ -16,18 +16,26 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    function updateSlides() {
+        slides.forEach((slide, idx) => {
+            if (idx === index) {
+                slide.classList.add('active');
+            } else {
+                slide.classList.remove('active');
+            }
+        });
+    }
+
     function showNextSlide() {
         index = (index + 1) % totalSlides;
-        slider.style.transition = 'transform 0.5s ease';
-        slider.style.transform = `translateX(-${index * 100}%)`;
         updateNav();
+        updateSlides();
     }
 
     function showSlide(idx) {
         index = idx;
-        slider.style.transition = 'transform 0.5s ease';
-        slider.style.transform = `translateX(-${index * 100}%)`;
         updateNav();
+        updateSlides();
     }
 
     navLinks.forEach((link, idx) => {
@@ -37,6 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    setInterval(showNextSlide, 10000); // change slide every 10 s
-    updateNav(); 
+    setInterval(showNextSlide, 15000);
+    updateNav();
+    updateSlides();
 });
