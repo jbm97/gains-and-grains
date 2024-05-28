@@ -15,18 +15,31 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 22px 7%;
+    padding: 15px 7%;
     background-color: var(--bg-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 nav {
     order: 1;
 }
 
+nav ul li {
+    display: inline-block;
+    margin-right: 0.3em;
+}
+
 .logo {
     cursor: default;
     order: 3;
     margin-left: auto;
+}
+
+.small-logo {
+    order: 4;
+    margin-left: 5px;
 }
 
 .nav_links a,
@@ -151,5 +164,11 @@ nav {
     }
     .menu {
         display: initial;
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    html {
+        font-size: 83%;
     }
 }

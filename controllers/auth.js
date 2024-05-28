@@ -49,7 +49,7 @@ router.post('/signup', async (req, res) => {
         // authenticate the user via passport
         console.log('----- NEW USER ----\n', newUser);
         passport.authenticate('local', {
-            successRedirect: '/profile',
+            successRedirect: '/auth/login',
             successFlash: `Welcome ${newUser.name}! Account created.`
         })(req, res);
 
@@ -68,10 +68,10 @@ router.post('/signup', async (req, res) => {
 
 // --- post to login user in ---
 router.post('/login', passport.authenticate('local', {
-    successRedirect: '/profile',
+    successRedirect: '/dashboard',
     failureRedirect: '/auth/login',
     successFlash: 'Welcome back to your account',
-    failureFlash: 'Either email or password is incorrect. Please try again'
+    failureFlash: 'Email or password is incorrect. If you do not have an account please sign up.'
 }), (req, res) => {
     
 });
