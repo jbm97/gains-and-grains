@@ -1,17 +1,17 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const carousel = document.querySelector('.carousel');
-    const slider = carousel.querySelector('.list');
-    const slides = carousel.querySelectorAll('.item');
-    const navLinks = document.querySelectorAll('.slider-nav a');
+document.addEventListener("DOMContentLoaded", function () {
+    const carousel = document.querySelector(".carousel");
+    const slider = carousel.querySelector(".list");
+    const slides = carousel.querySelectorAll(".item");
+    const navLinks = document.querySelectorAll(".slider-nav a");
     const totalSlides = slides.length;
     let index = 0;
 
     function updateNav() {
         navLinks.forEach((link, idx) => {
             if (idx === index) {
-                link.classList.add('active');
+                link.classList.add("active");
             } else {
-                link.classList.remove('active');
+                link.classList.remove("active");
             }
         });
     }
@@ -19,9 +19,9 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateSlides() {
         slides.forEach((slide, idx) => {
             if (idx === index) {
-                slide.classList.add('active');
+                slide.classList.add("active");
             } else {
-                slide.classList.remove('active');
+                slide.classList.remove("active");
             }
         });
     }
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     navLinks.forEach((link, idx) => {
-        link.addEventListener('click', (e) => {
+        link.addEventListener("click", (e) => {
             e.preventDefault();
             showSlide(idx);
         });

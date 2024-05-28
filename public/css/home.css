@@ -206,29 +206,44 @@ span {
 
 .carousel .list .item .content {
     position: absolute;
-    top: 20%;
-    width: 1140px;
-    max-width: 80%;
-    left: 50%;
-    transform: translateX(-50%);
-    padding-right: 30%;
+    top: 30%;
+    width: 1440px;
+    max-width: 100%;
+    padding-left: 10%;
+    padding-right: 15%;
     box-sizing: border-box;
-    color: #fff;
-    text-shadow: 0 5px 10px #0004;
+    color: var(--text-color);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
-.carousel .list .item .author {
+
+.carousel .list .item .title {
     font-weight: bold;
     letter-spacing: 10px;
 }
-.carousel .list .item .title,
+
+.carousel .list .item .feature,
 .carousel .list .item .topic {
-    font-size: 5em;
+    font-size: 3.5em;
     font-weight: bold;
-    line-height: 1.3em;
+    line-height: 1.5em;
 }
-.carousel .list .item .topic {
-    color: #f1683a;
+
+.carousel .list .item .feature {
+    color: var(--main-color);
 }
+
+.carousel .list .item:nth-child(2) .feature {
+    color: var(--accent-color);
+}
+
+.carousel .list .item .title {
+    color: var(--bg-color);
+}
+
+.carousel .list .item .des {
+    max-width: 60%;
+}
+
 .carousel .list .item .buttons {
     display: grid;
     grid-template-columns: repeat(2, 130px);
@@ -236,15 +251,33 @@ span {
     gap: 5px;
     margin-top: 20px;
 }
+
 .carousel .list .item .buttons button {
     border: none;
-    background-color: #eee;
+    background-color: var(--accent-color);
     letter-spacing: 3px;
     font-family: Poppins;
     font-weight: 500;
+    color: var(--bg-color);
 }
+
 .carousel .list .item .buttons button:nth-child(2) {
     background-color: transparent;
-    border: 1px solid #fff;
-    color: #eee;
+    border: 1px solid var(--accent-color);
+    color: var(--main-color);
+}
+
+.carousel .list .item:nth-child(2) .buttons button:first-child {
+    border: none;
+    background-color: var(--main-color);
+    letter-spacing: 3px;
+    font-family: Poppins;
+    font-weight: 500;
+    color: var(--bg-color);
+}
+
+.carousel .list .item:nth-child(2) .buttons button:nth-child(2) {
+    background-color: transparent;
+    border: 1px solid var(--main-color);
+    color: var(--accent-color);
 }
