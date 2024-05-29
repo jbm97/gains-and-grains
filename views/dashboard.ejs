@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Gains & Grains</title>
+        <link rel="icon" type="image/png" href="/img/smalllogo.png" />
+        <link rel="stylesheet" href="/css/dashboard.css" />
+        <link rel="stylesheet" href="/css/header.css" />
+    </head>
+    <body>
+        <header>
+            <h2 class="logo">GAINS & GRAINS</h2>
+            <img
+                src="/img/smalllogo.png"
+                class="small-logo"
+                alt="Small Gains & Grains Logo"
+                height="30px"
+            />
+            <nav>
+                <ul class="nav_links">
+                    <li><a class="navlink" href="/">Home</a></li>
+                    <% if(!currentUser) { %>
+                    <li><a class="navlink" href="/auth/login">Log In</a></li>
+                    <li><a class="navlink" href="/auth/signup">Sign Up</a></li>
+                    <% } else { %>
+                    <li><a class="navlink" href="/user/dashboard">Dashboard</a></li>
+                    <li><a class="navlink" href="/auth/logout">Logout</a></li>
+                    <% } %>
+                    <li><a class="navlink" href="/#about/">About</a></li>
+                    <li><a class="cta cont" href="/contact">Contact</a></li>
+                </ul>
+            </nav>
+            <p class="menu cta">Menu</p>
+        </header>
+
+        <div id="mobile_menu" class="overlay">
+            <a class="close">&times;</a>
+            <div class="overlay_content">
+                <a href="#">Home</a>
+                <% if(!currentUser) { %>
+                <a href="/auth/login">Log In</a>
+                <a href="/auth/signup">Sign Up</a>
+                <% } else { %>
+                <a href="/user/dashboard">Dashboard</a>
+                <a href="/auth/logout">Logout</a>
+                <% } %>
+                <a href="/#about/">About</a>
+                <a href="/contact">Contact</a>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="dashboard">
+                <div class="row">
+                    <div class="box">
+                        <a href="/user/workouts">
+                            <div class="box-content">
+                                <img src="https://via.placeholder.com/250" alt="" />
+                                <h2>Workout Log</h2>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="box">
+                        <a href="/user/food-log">
+                            <div class="box-content">
+                                <img src="https://via.placeholder.com/250" alt="" />
+                                <h2>Food Log</h2>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="box">
+                        <a href="/user/goals">
+                            <div class="box-content">
+                                <img src="https://via.placeholder.com/250" alt="" />
+                                <h2>Goal Tracking</h2>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="box">
+                        <a href="/user/profile">
+                            <div class="box-content">
+                                <img src="https://via.placeholder.com/250" alt="" />
+                                <h2>Profile</h2>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="box">
+                        <a href="/contact">
+                            <div class="box-content">
+                                <img src="https://via.placeholder.com/250" alt="" />
+                                <h2>Leave Feedback!</h2>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="/js/mobilemenu.js"></script>
+    </body>
+</html>

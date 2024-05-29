@@ -21,6 +21,10 @@
     --highlight-color: #28a745;
 }
 
+html {
+    overflow-x: hidden;
+}
+
 header {
     display: flex;
     justify-content: space-between;
@@ -90,7 +94,7 @@ nav ul li {
 .cta {
     order: 2;
     padding: 9px 25px;
-    background-color: var(--main-color);
+    background-color: var(--accent-color);
     border: none;
     border-radius: 50px;
     cursor: pointer;
@@ -98,7 +102,7 @@ nav ul li {
 }
 
 .cta:hover {
-    background-color: var(--accent-color);
+    background-color: var(--main-color);
 }
 
 /* Mobile Nav */
