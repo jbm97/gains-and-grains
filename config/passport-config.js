@@ -1,38 +1,41 @@
-const passport = require('passport');
-const LocalStrategy = require('passport-local').Strategy;
-const { validPassword } = require('../utils');
-const { User } = require('../models');
+const passport = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
+const { validPassword } = require("../utils");
+const { User } = require("../models");
 
-const STRATEGY = new LocalStrategy({
-    usernameField: 'email', // or username
-    passwordField: 'password'
-}, async (email, password, callback) => {
-    try {
-        const user = await User.findOne({ email });
+const STRATEGY = new LocalStrategy(
+    {
+        usernameField: "username",
+        passwordField: "password",
+    },
+    async (username, password, callback) => {
+        try {
+            const user = await User.findOne({ username });
 
-        if (!user || !validPassword(password, user.password)) {
-            callback(null, false);
-        } else {
-            callback(null, user);
+            if (!user || !validPassword(password, user.password)) {
+                callback(null, false);
+            } else {
+                callback(null, user);
+            }
+        } catch (error) {
+            console.log("---- ERROR ---\n", error);
         }
-    } catch (error) {
-        console.log('---- ERROR ---\n', error);
     }
-});
+);
 
 passport.serializeUser((user, callback) => {
-    callback(null, user.email); // note: might switch to user.id
-}); 
+    callback(null, user.username);
+});
 
-passport.deserializeUser(async (email, callback) => {
+passport.deserializeUser(async (username, callback) => {
     try {
-        const user = await User.findOne({ email });
+        const user = await User.findOne({ username });
 
         if (user) {
             callback(null, user);
         }
     } catch (error) {
-        console.log('---- ERROR IN PASSPORT CONFIG -----\n', error);
+        console.log("---- ERROR IN PASSPORT CONFIG -----\n", error);
     }
 });
 

@@ -34,7 +34,7 @@
                     <li><a class="navlink" href="/user/dashboard">Dashboard</a></li>
                     <li><a class="navlink" href="/auth/logout">Logout</a></li>
                     <% } %>
-                    <li><a class="navlink" href="#about">About</a></li>
+                    <li><a class="navlink" href="/#about/">About</a></li>
                     <li><a class="cta cont" href="/contact">Contact</a></li>
                 </ul>
             </nav>
@@ -58,27 +58,37 @@
         </div>
 
         <section class="signup">
-          <div class="container">
-              <div class="title">USER LOG IN</div>
-              <div class="content">
-                  <form action="/auth/login" method="POST">
-                      <div class="user-details">
-                          <div class="input-box">
-                              <span class="details">Username</span>
-                              <input type="text" placeholder="Enter your username" required />
-                          </div>
-                          <div class="input-box">
-                              <span class="details">Password</span>
-                              <input type="password" placeholder="Enter your password" required />
-                          </div>
-                      </div>
-                      <div class="button">
-                          <input type="submit" value="LOG IN NOW" />
-                      </div>
-                  </form>
-              </div>
-          </div>
-      </section>
+            <div class="container">
+                <div class="title">USER LOG IN</div>
+                <div class="content">
+                    <form action="/auth/login" method="POST">
+                        <div class="user-details">
+                            <div class="input-box">
+                                <span class="details">Username</span>
+                                <input
+                                    type="text"
+                                    placeholder="Enter your username"
+                                    name="username"
+                                    required
+                                />
+                            </div>
+                            <div class="input-box">
+                                <span class="details">Password</span>
+                                <input
+                                    type="password"
+                                    placeholder="Enter your password"
+                                    name="password"
+                                    required
+                                />
+                            </div>
+                        </div>
+                        <div class="button">
+                            <input type="submit" value="LOG IN NOW" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
 
         <script src="/js/mobilemenu.js"></script>
     </body>
