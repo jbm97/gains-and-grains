@@ -38,6 +38,10 @@ app.get("/", (req, res) => {
     res.render("home", {});
 });
 
+app.get("/contact", (req, res) => {
+    res.render("contact", {});
+});
+
 // import routes
 app.use("/auth", require("./controllers/auth"));
 // app.use('/pokemon', require('./controllers/pokemon'));

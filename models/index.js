@@ -6,6 +6,7 @@ const User = require("./user");
 const Workout = require("./workouts");
 const Food = require("./foodlog");
 const Goal = require("./goals");
+const Contact = require("./contact");
 
 mongoose.connect(process.env.MONGO_URI);
 
@@ -19,4 +20,5 @@ module.exports = {
     Workout,
     Food,
     Goal,
+    Contact,
 };
