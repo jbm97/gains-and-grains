@@ -38,7 +38,7 @@ app.get("/", (req, res) => {
     res.render("home", {});
 });
 
-// import auth routes
+// import routes
 app.use("/auth", require("./controllers/auth"));
 // app.use('/pokemon', require('./controllers/pokemon'));
 // app.use('/', require('./controllers/pokemon'));

@@ -38,6 +38,13 @@ const userSchema = new mongoose.Schema(
             },
             required: [true, "Your phone number is required"],
         },
+        birthDate: { type: Date },
+        age: { type: Number, min: 0 },
+        weight: { type: Number },
+        height: {
+            feet: { type: Number },
+            inches: { type: Number }
+        }
     },
     { timestamps: true }
 );
