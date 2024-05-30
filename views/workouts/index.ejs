@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Gains & Grains - Workouts</title>
+        <link rel="icon" type="image/png" href="/img/smalllogo.png" />
+        <link rel="stylesheet" href="/css/workouts.css" />
+        <link rel="stylesheet" href="/css/header.css" />
+    </head>
+    <body>
+        <header>
+            <h2 class="logo">GAINS & GRAINS</h2>
+            <img
+                src="/img/smalllogo.png"
+                class="small-logo"
+                alt="Small Gains & Grains Logo"
+                height="30px"
+            />
+            <nav>
+                <ul class="nav_links">
+                    <li><a class="navlink" href="/">Home</a></li>
+                    <% if(!currentUser) { %>
+                    <li><a class="navlink" href="/login">Log In</a></li>
+                    <li><a class="navlink" href="/signup">Sign Up</a></li>
+                    <% } else { %>
+                    <li><a class="navlink" href="/user/dashboard">Dashboard</a></li>
+                    <li><a class="navlink" href="/logout">Logout</a></li>
+                    <% } %>
+                    <li><a class="navlink" href="/#about/">About</a></li>
+                    <li><a class="cta cont" href="/contact">Contact</a></li>
+                </ul>
+            </nav>
+            <p class="menu cta">Menu</p>
+        </header>
+
+        <div id="mobile_menu" class="overlay">
+            <a class="close">&times;</a>
+            <div class="overlay_content">
+                <a href="#">Home</a>
+                <% if(!currentUser) { %>
+                <a href="/login">Log In</a>
+                <a href="/signup">Sign Up</a>
+                <% } else { %>
+                <a href="/user/dashboard">Dashboard</a>
+                <a href="/logout">Logout</a>
+                <% } %>
+                <a href="/#about/">About</a>
+                <a href="/contact">Contact</a>
+            </div>
+        </div>
+
+        <div class="container">
+            <h1>Your Workouts</h1>
+            <a href="/user/workouts/new" class="btn">New Workout</a>
+            <div class="grid">
+                <% workouts.forEach(workout => { %>
+                <div class="card">
+                    <a href="/user/workouts/<%= workout._id %>">
+                        <div class="card-content">
+                            <h3><%= workout.name %></h3>
+                            <p><%= new Date(workout.date).toLocaleDateString() %></p>
+                        </div>
+                    </a>
+                    <div class="actions">
+                        <a href="/user/workouts/<%= workout._id %>/edit" class="btn">Edit</a>
+                        <form
+                            action="/user/workouts/<%= workout._id %>?_method=DELETE"
+                            method="POST"
+                        >
+                            <button type="submit" class="btn delete">Delete</button>
+                        </form>
+                    </div>
+                </div>
+                <% }) %>
+            </div>
+        </div>
+
+        <script src="/js/mobilemenu.js"></script>
+    </body>
+</html>
+

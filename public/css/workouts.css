@@ -1,0 +1,103 @@
+git add . && git commit -m "feat: add workout routes for index and new to 
+view all and add workouts, will adjust entered information later, style index slightly"
+
+body {
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s;
+    position: relative;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card a {
+    display: block;
+    text-decoration: none;
+    color: #000;
+}
+
+.card-content {
+    padding: 20px;
+    text-align: center;
+}
+
+.card-content h3 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.card-content p {
+    margin: 10px 0 0;
+    color: #888;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    background-color: #f8f8f8;
+    border-top: 1px solid #eee;
+}
+
+.actions .btn {
+    background-color: var(--main-color);
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.actions .btn:hover {
+    background-color: var(--accent-color);
+}
+
+.actions .btn.delete {
+    background-color: red;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--main-color);
+    color: white;
+    padding: 10px 20px;
+    margin: 20px 0;
+    text-align: center;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: var(--accent-color);
+}
