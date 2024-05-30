@@ -10,7 +10,6 @@
     </head>
     <body>
         <% if (alerts.success) { %> <% alerts.success.forEach(msg => { %>
-
         <div class="alert alert-success"><%= msg %></div>
         <% }) %> <% } %> <% if (alerts.error) { %> <% alerts.error.forEach(msg => { %>
         <div class="alert alert-danger"><%= msg %></div>
@@ -28,11 +27,11 @@
                 <ul class="nav_links">
                     <li><a class="navlink" href="/">Home</a></li>
                     <% if(!currentUser) { %>
-                    <li><a class="navlink" href="/auth/login">Log In</a></li>
-                    <li><a class="navlink" href="/auth/signup">Sign Up</a></li>
+                    <li><a class="navlink" href="/login">Log In</a></li>
+                    <li><a class="navlink" href="/signup">Sign Up</a></li>
                     <% } else { %>
                     <li><a class="navlink" href="/user/dashboard">Dashboard</a></li>
-                    <li><a class="navlink" href="/auth/logout">Logout</a></li>
+                    <li><a class="navlink" href="/logout">Logout</a></li>
                     <% } %>
                     <li><a class="navlink" href="/#about/">About</a></li>
                     <li><a class="cta cont" href="/contact">Contact</a></li>
@@ -46,11 +45,11 @@
             <div class="overlay_content">
                 <a href="#">Home</a>
                 <% if(!currentUser) { %>
-                <a href="/auth/login">Log In</a>
-                <a href="/auth/signup">Sign Up</a>
+                <a href="/login">Log In</a>
+                <a href="/signup">Sign Up</a>
                 <% } else { %>
                 <a href="/user/dashboard">Dashboard</a>
-                <a href="/auth/logout">Logout</a>
+                <a href="/logout">Logout</a>
                 <% } %>
                 <a href="/#about/">About</a>
                 <a href="/contact">Contact</a>
@@ -61,51 +60,60 @@
             <div class="container">
                 <div class="title">USER SIGN UP</div>
                 <div class="content">
-                    <form action="/auth/signup" method="POST">
+                    <form action="/signup" method="POST">
                         <div class="user-details">
                             <div class="input-box">
                                 <span class="details">Full Name</span>
-                                <input type="text" placeholder="Enter your name" name="name" required />
+                                <input
+                                    type="text"
+                                    placeholder="Enter your name"
+                                    name="name"
+                                    required
+                                />
                             </div>
                             <div class="input-box">
                                 <span class="details">Username</span>
-                                <input type="text" placeholder="Enter your username" name="username" required />
+                                <input
+                                    type="text"
+                                    placeholder="Enter your username"
+                                    name="username"
+                                    required
+                                />
                             </div>
                             <div class="input-box">
                                 <span class="details">Email</span>
-                                <input type="text" placeholder="Enter your email" name ="email" required />
+                                <input
+                                    type="text"
+                                    placeholder="Enter your email"
+                                    name="email"
+                                    required
+                                />
                             </div>
                             <div class="input-box">
                                 <span class="details">Phone Number</span>
-                                <input type="text" placeholder="Enter your number" name="phoneNumber" required />
+                                <input
+                                    type="text"
+                                    placeholder="Enter your number"
+                                    name="phoneNumber"
+                                    required
+                                />
                             </div>
                             <div class="input-box">
                                 <span class="details">Password</span>
-                                <input type="password" placeholder="Enter your password" name="password" required />
+                                <input
+                                    type="password"
+                                    placeholder="Enter your password"
+                                    name="password"
+                                    required
+                                />
                             </div>
                             <div class="input-box">
                                 <span class="details">Confirm Password</span>
-                                <input type="password" placeholder="Confirm your password" required />
-                            </div>
-                        </div>
-                        <div class="gender-details">
-                            <input type="radio" name="gender" id="dot-1" />
-                            <input type="radio" name="gender" id="dot-2" />
-                            <input type="radio" name="gender" id="dot-3" />
-                            <span class="gender-title">Gender</span>
-                            <div class="category">
-                                <label for="dot-1">
-                                    <span class="dot one"></span>
-                                    <span class="gender">Male</span>
-                                </label>
-                                <label for="dot-2">
-                                    <span class="dot two"></span>
-                                    <span class="gender">Female</span>
-                                </label>
-                                <label for="dot-3">
-                                    <span class="dot three"></span>
-                                    <span class="gender">Other</span>
-                                </label>
+                                <input
+                                    type="password"
+                                    placeholder="Confirm your password"
+                                    required
+                                />
                             </div>
                         </div>
                         <div class="button">

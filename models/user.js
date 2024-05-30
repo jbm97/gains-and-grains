@@ -51,9 +51,10 @@ const userSchema = new mongoose.Schema(
 
 userSchema.pre("save", function (next) {
     console.log("------- PASSWORD -------", this.password); // might delete later...
-    let hash = bcrypt.hashSync(this.password, 12);
-    console.log("------- HASH -------", hash); // might delete later...
-    this.password = hash;
+    if (this.isModified("password") || this.isNew) {
+        this.password = bcrypt.hashSync(this.password, 12);
+    }
+    console.log("------- HASH -------", this.password); // might delete later...
     next();
 });
 

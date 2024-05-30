@@ -28,11 +28,11 @@
                 <ul class="nav_links">
                     <li><a class="navlink" href="/">Home</a></li>
                     <% if(!currentUser) { %>
-                    <li><a class="navlink" href="/auth/login">Log In</a></li>
-                    <li><a class="navlink" href="/auth/signup">Sign Up</a></li>
+                    <li><a class="navlink" href="/login">Log In</a></li>
+                    <li><a class="navlink" href="/signup">Sign Up</a></li>
                     <% } else { %>
                     <li><a class="navlink" href="/user/dashboard">Dashboard</a></li>
-                    <li><a class="navlink" href="/auth/logout">Logout</a></li>
+                    <li><a class="navlink" href="/logout">Logout</a></li>
                     <% } %>
                     <li><a class="navlink" href="/#about/">About</a></li>
                     <li><a class="cta cont" href="/contact">Contact</a></li>
@@ -46,11 +46,11 @@
             <div class="overlay_content">
                 <a href="#">Home</a>
                 <% if(!currentUser) { %>
-                <a href="/auth/login">Log In</a>
-                <a href="/auth/signup">Sign Up</a>
+                <a href="/login">Log In</a>
+                <a href="/signup">Sign Up</a>
                 <% } else { %>
                 <a href="/user/dashboard">Dashboard</a>
-                <a href="/auth/logout">Logout</a>
+                <a href="/logout">Logout</a>
                 <% } %>
                 <a href="#about">About</a>
                 <a href="/contact">Contact</a>
@@ -61,7 +61,7 @@
             <div class="container">
                 <div class="title">USER LOG IN</div>
                 <div class="content">
-                    <form action="/auth/login" method="POST">
+                    <form action="/login" method="POST">
                         <div class="user-details">
                             <div class="input-box">
                                 <span class="details">Username</span>

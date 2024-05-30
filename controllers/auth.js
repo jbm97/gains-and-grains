@@ -16,13 +16,13 @@ router.get("/login", (req, res) => {
     res.render("auth/login", {});
 });
 
-// --- log the user out of app
+// --- log the user out of app ---
 router.get("/logout", (req, res) => {
     res.locals.currentUser = null;
-    req.logOut((error, next) => {
+    req.logOut((error) => {
         if (error) {
             req.flash("error", "Error logging out. Please try again");
-            return next(error);
+            return res.redirect("/");
         }
         req.flash("success", "Logging out... See you next time!");
         res.redirect("/");
@@ -31,38 +31,40 @@ router.get("/logout", (req, res) => {
 
 // ======== POST ROUTES ===============
 // --- grab data from req.body + create user + redirect + error handling ---
-// --- name, email, phone, password ---
 router.post("/signup", async (req, res) => {
-    // create the phone number error, then we can address a solution
-    // search for the email in database (unique)
     try {
-        const findUser = await User.findOne({ email: req.body.email, username: req.body.username });
-        // if findUser is null, then we create user
+        const findUser = await User.findOne({
+            $or: [{ email: req.body.email }, { username: req.body.username }],
+        });
         if (!findUser) {
-            const newUser = await User.create({
+            const newUser = new User({
                 name: req.body.name,
                 username: req.body.username,
                 email: req.body.email,
                 phoneNumber: req.body.phoneNumber,
                 password: req.body.password,
             });
-            // req.flash('success', `Welcome ${newUser.name}! Account created.`); come back too later
-            // authenticate the user via passport
-            console.log("----- NEW USER ----\n", newUser);
+            await newUser.save();
             passport.authenticate("local", {
-                successRedirect: "/auth/login",
-                successFlash: `Welcome ${newUser.name}! Account created.`,
+                successRedirect: "/login",
+                successFlash: `Welcome ${newUser.name}! Account created, please login`,
             })(req, res);
         } else {
             req.flash("error", "Email or username already exists. Please try again.");
-            res.redirect("/auth/signup");
+            res.redirect("/signup");
         }
     } catch (error) {
         console.log("----- ERROR IN SIGNUP POST ----", error);
-        if (error.errors.phone.name === "ValidatorError") {
-            req.flash("error", "Phone number needs be for in format XXX-XXX-XXXX");
-            res.redirect("/auth/signup");
+        if (error.errors) {
+            for (let key in error.errors) {
+                req.flash("error", error.errors[key].message);
+            }
+        } else if (error.code === 11000) {
+            req.flash("error", "Email or username already exists. Please try again.");
+        } else {
+            req.flash("error", "There was an error creating your account. Please try again.");
         }
+        res.redirect("/signup");
     }
 });
 
@@ -71,11 +73,10 @@ router.post(
     "/login",
     passport.authenticate("local", {
         successRedirect: "/user/dashboard",
-        failureRedirect: "/auth/login",
-        successFlash: "Welcome back to your account",
-        failureFlash: "Either email or password is incorrect. Please try again",
-    }),
-    (req, res) => {}
+        failureRedirect: "/login",
+        successFlash: "Welcome Back to Gains & Grains!",
+        failureFlash: "Username or password is incorrect. Please try again",
+    })
 );
 
 module.exports = router;

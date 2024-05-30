@@ -44,31 +44,19 @@ app.get("/contact", (req, res) => {
 });
 
 // import routes
-app.use("/auth", require("./controllers/auth"));
-app.use("/contact", require("./controllers/contact"));
-// app.use('/pokemon', require('./controllers/pokemon'));
-// app.use('/', require('./controllers/pokemon'));
+app.use("/", require("./controllers/auth"));
+app.use("/", require("./controllers/contact"));
 
 // --- AUTHENTICATED ROUTE: go to user profile page ---
 app.get("/user/profile", isLoggedIn, (req, res) => {
-    const { usernamname, email, phone } = req.user;
-    res.render("profile", { username, email, phone });
+    const { username, email, phoneNumber } = req.user;
+    res.render("profile", { username, email, phoneNumber });
 });
 
 app.get("/user/dashboard", isLoggedIn, (req, res) => {
     const { username } = req.user;
     res.render("dashboard", { username });
 });
-
-// any authenticated route will need to have isLoggedIn before controller
-// app.get('/pokemon', isLoggedIn, (req, res) => {
-//     // get data
-//     // render page + send data to page
-// });
-
-// app.get('/pokemon/:id/edit', isLoggedIn, (req, res) => {});
-
-// app.delete('/pokemon/:id', isLoggedIn, (req, res) => {});
 
 const server = app.listen(PORT, () => {
     console.log("Server Running on Port:", PORT);
