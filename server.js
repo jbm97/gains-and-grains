@@ -10,6 +10,7 @@ const PORT = process.env.PORT || 3000;
 
 // import model
 const { User } = require("./models");
+const Contact = require("./models/contact");
 
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: false }));
@@ -44,18 +45,19 @@ app.get("/contact", (req, res) => {
 
 // import routes
 app.use("/auth", require("./controllers/auth"));
+app.use("/contact", require("./controllers/contact"));
 // app.use('/pokemon', require('./controllers/pokemon'));
 // app.use('/', require('./controllers/pokemon'));
 
 // --- AUTHENTICATED ROUTE: go to user profile page ---
 app.get("/user/profile", isLoggedIn, (req, res) => {
-    const { name, email, phone } = req.user;
-    res.render("profile", { name, email, phone });
+    const { usernamname, email, phone } = req.user;
+    res.render("profile", { username, email, phone });
 });
 
 app.get("/user/dashboard", isLoggedIn, (req, res) => {
-    const { name, email, phone } = req.user;
-    res.render("dashboard", { name, email, phone });
+    const { username } = req.user;
+    res.render("dashboard", { username });
 });
 
 // any authenticated route will need to have isLoggedIn before controller
@@ -69,7 +71,7 @@ app.get("/user/dashboard", isLoggedIn, (req, res) => {
 // app.delete('/pokemon/:id', isLoggedIn, (req, res) => {});
 
 const server = app.listen(PORT, () => {
-    console.log("🏎️ You are listening on PORT", PORT);
+    console.log("Server Running on Port:", PORT);
 });
 
 module.exports = server;

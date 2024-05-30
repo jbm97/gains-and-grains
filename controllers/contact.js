@@ -1,18 +1,17 @@
 const express = require("express");
 const router = express.Router();
 
-const { Contact } = require("../models");
+const Contact = require("../models/contact");
 
 router.post("/submit", async (req, res) => {
     try {
-        const { name, email, message } = req.body;
         const newMessage = new Contact({
-            name,
-            email,
-            message,
+            name: req.body.name,
+            email: req.body.email,
+            message: req.body.message,
         });
         await newMessage.save();
-        req.flash("success", "Your message has been sent successfully!");
+        req.flash("success", "Your message has been sent.");
         res.redirect("/");
     } catch (error) {
         console.error("Error saving contact message:", error);
