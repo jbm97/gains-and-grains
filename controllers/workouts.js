@@ -15,18 +15,19 @@ router.get("/", isLoggedIn, async (req, res) => {
     }
 });
 
-router.get("/new", (req, res) => {
+router.get("/new", isLoggedIn, (req, res) => {
     res.render("workouts/new");
 });
 
 // POST new workout
 router.post("/", isLoggedIn, async (req, res) => {
     try {
+        console.log("body:", req.body);
         const newWorkout = new Workout({
             userId: req.user._id,
             name: req.body.name,
             date: req.body.date,
-            // change
+            exercises: req.body.exercises,
         });
         await newWorkout.save();
         req.flash("success", "Workout added!");

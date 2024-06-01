@@ -1,8 +1,5 @@
-git add . && git commit -m "feat: add workout routes for index and new to 
-view all and add workouts, will adjust entered information later, style index slightly"
-
 body {
-    background-color: #f0f0f0;
+    background-color: var(--bg-color);
     margin: 0;
     padding: 0;
     font-family: "Poppins", sans-serif;
@@ -79,10 +76,6 @@ h1 {
 
 .actions .btn:hover {
     background-color: var(--accent-color);
-}
-
-.actions .btn.delete {
-    background-color: red;
 }
 
 .btn {

@@ -50,17 +50,79 @@
             </div>
         </div>
 
-        <div class="container">
-            <h1>Add New Workout</h1>
-            <form action="/user/workouts" method="POST">
-                <label for="name">Workout Name:</label>
-                <input type="text" name="name" id="name" required />
-                <label for="date">Date:</label>
-                <input type="date" name="date" id="date" required />
-                <!-- Add other stuff l8r -->
-                <button type="submit">Add Workout</button>
-            </form>
-        </div>
+        <section class="new-workout">
+            <div class="container">
+                <div class="title">New Workout</div>
+                <div class="content">
+                    <form action="/user/workouts" method="POST">
+                        <div class="input-box">
+                            <span class="details">Workout Name</span>
+                            <input
+                                type="text"
+                                name="name"
+                                placeholder="Ex: Chest Day, Pull Day, Cardio"
+                                required
+                            />
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Date</span>
+                            <input type="date" name="date" required />
+                        </div>
+                        <div id="exercises-container">
+                            <div class="exercise">
+                                <div class="input-box">
+                                    <span class="details">Exercise Name</span>
+                                    <input
+                                        type="text"
+                                        name="exercises[0][name]"
+                                        placeholder="Bench Press, Rows, Squats"
+                                        required
+                                    />
+                                </div>
+                                <div class="input-box">
+                                    <span class="details">Sets</span>
+                                    <input
+                                        type="number"
+                                        name="exercises[0][sets]"
+                                        placeholder="Enter Number of Sets"
+                                    />
+                                </div>
+                                <div class="input-box">
+                                    <span class="details">Reps</span>
+                                    <input
+                                        type="number"
+                                        name="exercises[0][reps]"
+                                        placeholder="Enter Number of Reps"
+                                    />
+                                </div>
+                                <div class="input-box">
+                                    <span class="details">Weight</span>
+                                    <input
+                                        type="number"
+                                        name="exercises[0][weight]"
+                                        placeholder="Enter Weight (lbs)"
+                                    />
+                                </div>
+                                <div class="input-box">
+                                    <span class="details">Duration (seconds)</span>
+                                    <input
+                                        type="number"
+                                        name="exercises[0][duration]"
+                                        placeholder="Enter Duration (sec)"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="button">
+                            <input type="button" value="Add Exercise" />
+                        </div>
+                        <div class="button">
+                            <input type="submit" value="Create Workout" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
 
         <script src="/js/mobilemenu.js"></script>
     </body>

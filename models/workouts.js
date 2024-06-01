@@ -4,15 +4,13 @@ const workoutSchema = new mongoose.Schema(
     {
         userId: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
         name: { type: String, required: true },
+        date: { type: Date, required: true },
         exercises: [
             {
                 name: { type: String, required: true },
-                sets: [
-                    {
-                        reps: { type: Number },
-                        weight: { type: Number },
-                    },
-                ],
+                sets: { type: Number },
+                reps: { type: Number },
+                weight: { type: Number },
                 duration: { type: Number },
             },
         ],
