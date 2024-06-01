@@ -82,5 +82,18 @@ router.put("/:id", isLoggedIn, async (req, res) => {
     }
 });
 
+// delete workout
+router.delete("/:id", isLoggedIn, async (req, res) => {
+    try {
+        await Workout.findByIdAndDelete(req.params.id);
+        req.flash("success", "Workout deleted!");
+        res.redirect("/user/workouts");
+    } catch (error) {
+        console.error("Error deleting workout:", error);
+        req.flash("error", "There was an error deleting the workout. Please try again.");
+        res.redirect("/user/workouts");
+    }
+});
+
 // Export router
 module.exports = router;
