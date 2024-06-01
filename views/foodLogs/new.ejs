@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>New Food Log</title>
+        <link rel="icon" type="image/png" href="/img/smalllogo.png" />
+        <link rel="stylesheet" href="/css/foodLog.css" />
+        <link rel="stylesheet" href="/css/header.css" />
+    </head>
+    <body>
+        <header>
+            <h2 class="logo">GAINS & GRAINS</h2>
+            <img
+                src="/img/smalllogo.png"
+                class="small-logo"
+                alt="Small Gains & Grains Logo"
+                height="30px"
+            />
+            <nav>
+                <ul class="nav_links">
+                    <li><a class="navlink" href="/">Home</a></li>
+                    <% if(!currentUser) { %>
+                    <li><a class="navlink" href="/login">Log In</a></li>
+                    <li><a class="navlink" href="/signup">Sign Up</a></li>
+                    <% } else { %>
+                    <li><a class="navlink" href="/user/dashboard">Dashboard</a></li>
+                    <li><a class="navlink" href="/logout">Logout</a></li>
+                    <% } %>
+                    <li><a class="navlink" href="/#about/">About</a></li>
+                    <li><a class="cta cont" href="/contact">Contact</a></li>
+                </ul>
+            </nav>
+            <p class="menu cta">Menu</p>
+        </header>
+
+        <div id="mobile_menu" class="overlay">
+            <a class="close">&times;</a>
+            <div class="overlay_content">
+                <a href="#">Home</a>
+                <% if(!currentUser) { %>
+                <a href="/login">Log In</a>
+                <a href="/signup">Sign Up</a>
+                <% } else { %>
+                <a href="/user/dashboard">Dashboard</a>
+                <a href="/logout">Logout</a>
+                <% } %>
+                <a href="/#about/">About</a>
+                <a href="/contact">Contact</a>
+            </div>
+        </div>
+
+        <section class="new-food-log">
+            <div class="container">
+                <div class="title">New Food Log</div>
+                <div class="content">
+                    <form action="/user/food-log" method="POST">
+                        <div id="meals-container">
+                            <div class="meal">
+                                <div class="input-box">
+                                    <span class="details">Meal Name</span>
+                                    <input
+                                        type="text"
+                                        name="meals[0][name]"
+                                        placeholder="Enter meal name"
+                                        required
+                                    />
+                                </div>
+                                <div class="input-box">
+                                    <span class="details">Calories</span>
+                                    <input
+                                        type="number"
+                                        name="meals[0][calories]"
+                                        placeholder="Enter calories"
+                                        required
+                                    />
+                                </div>
+                                <div class="input-box">
+                                    <span class="details">Protein (g)</span>
+                                    <input
+                                        type="number"
+                                        name="meals[0][protein]"
+                                        placeholder="Enter protein in grams"
+                                    />
+                                </div>
+                                <div class="input-box">
+                                    <span class="details">Carbs (g)</span>
+                                    <input
+                                        type="number"
+                                        name="meals[0][carbs]"
+                                        placeholder="Enter carbs in grams"
+                                    />
+                                </div>
+                                <div class="input-box">
+                                    <span class="details">Fats (g)</span>
+                                    <input
+                                        type="number"
+                                        name="meals[0][fats]"
+                                        placeholder="Enter fats in grams"
+                                    />
+                                </div>
+                                <div class="input-box">
+                                    <span class="details">Date Consumed</span>
+                                    <input type="date" name="meals[0][dateConsumed]" required />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="button">
+                            <input type="button" value="Add Meal" id="add-meal-btn" />
+                        </div>
+                        <div class="button">
+                            <input type="submit" value="Create Food Log" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <script src="/js/mobilemenu.js"></script>
+    </body>
+</html>

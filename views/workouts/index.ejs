@@ -59,7 +59,7 @@
                     <a href="/user/workouts/<%= workout._id %>">
                         <div class="card-content">
                             <h3><%= workout.name %></h3>
-                            <p><%= new Date(workout.date).toLocaleDateString() %></p>
+                            <p><%= new Date(workout.date).toDateString() %></p>
                         </div>
                     </a>
                     <div class="actions">

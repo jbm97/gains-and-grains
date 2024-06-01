@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Gains & Grains - Food Log</title>
+        <link rel="icon" type="image/png" href="/img/smalllogo.png" />
+        <link rel="stylesheet" href="/css/foodLog.css" />
+        <link rel="stylesheet" href="/css/header.css" />
+    </head>
+    <body>
+        <header>
+            <h2 class="logo">GAINS & GRAINS</h2>
+            <img
+                src="/img/smalllogo.png"
+                class="small-logo"
+                alt="Small Gains & Grains Logo"
+                height="30px"
+            />
+            <nav>
+                <ul class="nav_links">
+                    <li><a class="navlink" href="/">Home</a></li>
+                    <% if(!currentUser) { %>
+                    <li><a class="navlink" href="/login">Log In</a></li>
+                    <li><a class="navlink" href="/signup">Sign Up</a></li>
+                    <% } else { %>
+                    <li><a class="navlink" href="/user/dashboard">Dashboard</a></li>
+                    <li><a class="navlink" href="/logout">Logout</a></li>
+                    <% } %>
+                    <li><a class="navlink" href="/#about/">About</a></li>
+                    <li><a class="cta cont" href="/contact">Contact</a></li>
+                </ul>
+            </nav>
+            <p class="menu cta">Menu</p>
+        </header>
+
+        <div id="mobile_menu" class="overlay">
+            <a class="close">&times;</a>
+            <div class="overlay_content">
+                <a href="#">Home</a>
+                <% if(!currentUser) { %>
+                <a href="/login">Log In</a>
+                <a href="/signup">Sign Up</a>
+                <% } else { %>
+                <a href="/user/dashboard">Dashboard</a>
+                <a href="/logout">Logout</a>
+                <% } %>
+                <a href="/#about/">About</a>
+                <a href="/contact">Contact</a>
+            </div>
+        </div>
+
+        <div class="container">
+            <h1>Food Log Details</h1>
+            <div class="card">
+                <div class="card-content">
+                    <h3><%= foodLog.meals[0].name %></h3>
+                    <p>Date: <%= new Date(foodLog.meals[0].dateConsumed).toLocaleDateString() %></p>
+                    <p>Calories: <%= foodLog.meals[0].calories %> cal</p>
+                    <p>Protein: <%= foodLog.meals[0].protein %> g</p>
+                    <p>Carbs: <%= foodLog.meals[0].carbs %> g</p>
+                    <p>Fats: <%= foodLog.meals[0].fats %> g</p>
+                </div>
+                <div class="actions">
+                    <a href="/user/food-log/<%= foodLog._id %>/edit" class="btn">Edit</a>
+                    <form
+                        action="/user/food-log/<%= foodLog._id %>?_method=DELETE"
+                        method="POST"
+                        style="display: inline"
+                    >
+                        <button type="submit" class="btn">Delete</button>
+                    </form>
+                </div>
+            </div>
+            <a href="/user/food-log" class="btn">Back to Food Logs</a>
+        </div>
+
+        <script src="/js/mobilemenu.js"></script>
+    </body>
+</html>

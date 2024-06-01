@@ -10,7 +10,7 @@ const SECRET_SESSION = process.env.SECRET_SESSION;
 const PORT = process.env.PORT || 3000;
 
 // import model
-const { User, Workout } = require("./models");
+const { User, Workout, Food, Goal } = require("./models");
 const Contact = require("./models/contact");
 
 app.set("view engine", "ejs");
@@ -49,6 +49,7 @@ app.get("/contact", (req, res) => {
 app.use("/", require("./controllers/auth"));
 app.use("/contact", require("./controllers/contact"));
 app.use("/user/workouts", require("./controllers/workouts"));
+app.use("/user/food-log", require("./controllers/food"));
 
 // --- AUTHENTICATED ROUTE: go to user profile page ---
 app.get("/user/profile", isLoggedIn, (req, res) => {
