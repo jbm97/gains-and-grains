@@ -5,6 +5,7 @@ const flash = require("connect-flash");
 const session = require("express-session");
 const passport = require("./config/passport-config");
 const isLoggedIn = require("./middleware/isLoggedIn");
+const methodOverride = require("method-override");
 const SECRET_SESSION = process.env.SECRET_SESSION;
 const PORT = process.env.PORT || 3000;
 
@@ -23,6 +24,7 @@ app.use(
     })
 );
 app.use(flash());
+app.use(methodOverride("_method"));
 
 // initial passport
 app.use(passport.initialize());

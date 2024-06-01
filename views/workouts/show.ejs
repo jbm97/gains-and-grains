@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Workout Details</title>
+    <link rel="icon" type="image/png" href="/img/smalllogo.png" />
+    <link rel="stylesheet" href="/css/workouts.css" />
+    <link rel="stylesheet" href="/css/header.css" />
+</head>
+<body>
+    <header>
+        <h2 class="logo">GAINS & GRAINS</h2>
+        <img src="/img/smalllogo.png" class="small-logo" alt="Small Gains & Grains Logo" height="30px" />
+        <nav>
+            <ul class="nav_links">
+                <li><a class="navlink" href="/">Home</a></li>
+                <% if (!currentUser) { %>
+                <li><a class="navlink" href="/login">Log In</a></li>
+                <li><a class="navlink" href="/signup">Sign Up</a></li>
+                <% } else { %>
+                <li><a class="navlink" href="/user/dashboard">Dashboard</a></li>
+                <li><a class="navlink" href="/logout">Logout</a></li>
+                <% } %>
+                <li><a class="navlink" href="/#about/">About</a></li>
+                <li><a class="cta cont" href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+        <p class="menu cta">Menu</p>
+    </header>
+
+    <div id="mobile_menu" class="overlay">
+        <a class="close">&times;</a>
+        <div class="overlay_content">
+            <a href="#">Home</a>
+            <% if (!currentUser) { %>
+            <a href="/login">Log In</a>
+            <a href="/signup">Sign Up</a>
+            <% } else { %>
+            <a href="/user/dashboard">Dashboard</a>
+            <a href="/logout">Logout</a>
+            <% } %>
+            <a href="/#about/">About</a>
+            <a href="/contact">Contact</a>
+        </div>
+    </div>
+
+    <section class="workout-details">
+        <div class="container">
+            <div class="title"><%= workout.name %></div>
+            <div class="date">Date: <%= new Date(workout.date).toLocaleDateString() %></div>
+            <div class="exercises">
+                <h3>Exercises</h3>
+                <% workout.exercises.forEach((exercise, i) => { %>
+                    <div class="exercise">
+                        <h4>Exercise <%= i + 1 %>: <%= exercise.name %></h4>
+                        <p>Sets: <%= exercise.sets %></p>
+                        <p>Reps: <%= exercise.reps %></p>
+                        <p>Weight: <%= exercise.weight %> lbs</p>
+                        <p>Duration: <%= exercise.duration %> seconds</p>
+                    </div>
+                <% }) %>
+            </div>
+            <div class="buttons">
+                <a href="/user/workouts/<%= workout._id %>/edit" class="btn">Edit Workout</a>
+                <form action="/user/workouts/<%= workout._id %>?_method=DELETE" method="POST" class="btn">
+                    <button type="submit">Delete Workout</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script src="/js/mobilemenu.js"></script>
+</body>
+</html>

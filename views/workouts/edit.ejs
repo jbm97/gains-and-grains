@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Workout</title>
+    <link rel="icon" type="image/png" href="/img/smalllogo.png" />
+    <link rel="stylesheet" href="/css/workouts.css" />
+    <link rel="stylesheet" href="/css/header.css" />
+</head>
+<body>
+    <header>
+        <h2 class="logo">GAINS & GRAINS</h2>
+        <img
+            src="/img/smalllogo.png"
+            class="small-logo"
+            alt="Small Gains & Grains Logo"
+            height="30px"
+        />
+        <nav>
+            <ul class="nav_links">
+                <li><a class="navlink" href="/">Home</a></li>
+                <% if(!currentUser) { %>
+                <li><a class="navlink" href="/login">Log In</a></li>
+                <li><a class="navlink" href="/signup">Sign Up</a></li>
+                <% } else { %>
+                <li><a class="navlink" href="/user/dashboard">Dashboard</a></li>
+                <li><a class="navlink" href="/logout">Logout</a></li>
+                <% } %>
+                <li><a class="navlink" href="/#about/">About</a></li>
+                <li><a class="cta cont" href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+        <p class="menu cta">Menu</p>
+    </header>
+
+    <div id="mobile_menu" class="overlay">
+        <a class="close">&times;</a>
+        <div class="overlay_content">
+            <a href="#">Home</a>
+            <% if(!currentUser) { %>
+            <a href="/login">Log In</a>
+            <a href="/signup">Sign Up</a>
+            <% } else { %>
+            <a href="/user/dashboard">Dashboard</a>
+            <a href="/logout">Logout</a>
+            <% } %>
+            <a href="/#about/">About</a>
+            <a href="/contact">Contact</a>
+        </div>
+    </div>
+
+    <section class="edit-workout">
+        <div class="container">
+            <div class="title">Edit Workout</div>
+            <div class="content">
+                <form action="/user/workouts/<%= workout._id %>?_method=PUT" method="POST">
+                    <div class="input-box">
+                        <span class="details">Workout Name</span>
+                        <input
+                            type="text"
+                            name="name"
+                            value="<%= workout.name %>"
+                            required
+                        />
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Date</span>
+                        <input type="date" name="date" value="<%= new Date(workout.date).toISOString().substring(0, 10) %>" required />
+                    </div>
+                    <div id="exercises-container">
+                        <% workout.exercises.forEach((exercise, i) => { %>
+                            <div class="exercise">
+                                <div class="input-box">
+                                    <span class="details">Exercise Name</span>
+                                    <input
+                                        type="text"
+                                        name="exercises[<%= i %>][name]"
+                                        value="<%= exercise.name %>"
+                                        required
+                                    />
+                                </div>
+                                <div class="input-box">
+                                    <span class="details">Sets</span>
+                                    <input
+                                        type="number"
+                                        name="exercises[<%= i %>][sets]"
+                                        value="<%= exercise.sets %>"
+                                    />
+                                </div>
+                                <div class="input-box">
+                                    <span class="details">Reps</span>
+                                    <input
+                                        type="number"
+                                        name="exercises[<%= i %>][reps]"
+                                        value="<%= exercise.reps %>"
+                                    />
+                                </div>
+                                <div class="input-box">
+                                    <span class="details">Weight</span>
+                                    <input
+                                        type="number"
+                                        name="exercises[<%= i %>][weight]"
+                                        value="<%= exercise.weight %>"
+                                    />
+                                </div>
+                                <div class="input-box">
+                                    <span class="details">Duration (seconds)</span>
+                                    <input
+                                        type="number"
+                                        name="exercises[<%= i %>][duration]"
+                                        value="<%= exercise.duration %>"
+                                    />
+                                </div>
+                            </div>
+                        <% }) %>
+                    </div>
+                    <div class="button">
+                        <input type="button" value="Add Exercise" />
+                    </div>
+                    <div class="button">
+                        <input type="submit" value="Update Workout" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script src="/js/mobilemenu.js"></script>
+</body>
+</html>

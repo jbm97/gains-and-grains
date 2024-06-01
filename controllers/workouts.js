@@ -15,6 +15,7 @@ router.get("/", isLoggedIn, async (req, res) => {
     }
 });
 
+// New workout page
 router.get("/new", isLoggedIn, (req, res) => {
     res.render("workouts/new");
 });
@@ -22,7 +23,7 @@ router.get("/new", isLoggedIn, (req, res) => {
 // POST new workout
 router.post("/", isLoggedIn, async (req, res) => {
     try {
-        console.log("body:", req.body);
+        // console.log("body:", req.body);
         const newWorkout = new Workout({
             userId: req.user._id,
             name: req.body.name,
@@ -34,8 +35,50 @@ router.post("/", isLoggedIn, async (req, res) => {
         res.redirect("/user/workouts");
     } catch (error) {
         console.error("Error creating workout:", error);
-        req.flash("error", "There was an error creating the workout, try again.");
+        req.flash("error", "There was an error creating the workout. Please try again.");
         res.redirect("/user/workouts/new");
+    }
+});
+
+// View specific workout
+router.get("/:id", isLoggedIn, async (req, res) => {
+    try {
+        const workout = await Workout.findById(req.params.id);
+        // console.log("workout:", workout);
+        res.render("workouts/show", { workout });
+    } catch (error) {
+        console.error("Error getting workout:", error);
+        req.flash("error", "There was an error getting the workout. Please try again.");
+        res.redirect("/user/workouts");
+    }
+});
+
+// Edit workout page
+router.get("/:id/edit", isLoggedIn, async (req, res) => {
+    try {
+        const workout = await Workout.findById(req.params.id);
+        res.render("workouts/edit", { workout });
+    } catch (error) {
+        console.error("Error getting workout:", error);
+        req.flash("error", "There was an error getting the workout. Please try Again.");
+        res.redirect("/user/workouts");
+    }
+});
+
+// update workout (put)
+router.put("/:id", isLoggedIn, async (req, res) => {
+    try {
+        await Workout.findByIdAndUpdate(req.params.id, {
+            name: req.body.name,
+            date: req.body.date,
+            exercises: req.body.exercises,
+        });
+        req.flash("success", "Workout updated.");
+        res.redirect("/user/workouts");
+    } catch (error) {
+        console.error("Error deleting workout:", error);
+        req.flash("error", "There was an error deleting the workout. Please try again.");
+        res.redirect("/user/workouts");
     }
 });
 
