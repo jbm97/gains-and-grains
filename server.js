@@ -50,6 +50,7 @@ app.use("/", require("./controllers/auth"));
 app.use("/contact", require("./controllers/contact"));
 app.use("/user/workouts", require("./controllers/workouts"));
 app.use("/user/food-log", require("./controllers/food"));
+app.use("/user/goals", require("./controllers/goals"));
 
 // --- AUTHENTICATED ROUTE: go to user profile page ---
 app.get("/user/profile", isLoggedIn, (req, res) => {
