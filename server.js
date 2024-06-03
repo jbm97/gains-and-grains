@@ -53,6 +53,7 @@ app.use("/user/workouts", require("./controllers/workouts"));
 app.use("/user/food-log", require("./controllers/food"));
 app.use("/user/goals", require("./controllers/goals"));
 app.use('/api/nutrition', require('./controllers/nutrition'));
+app.use('/user/profile', require('./controllers/profileEdit'));
 
 // --- AUTHENTICATED ROUTE: go to user profile page ---
 app.get("/user/profile", isLoggedIn, (req, res) => {

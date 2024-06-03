@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Edit Profile</title>
+        <link rel="icon" type="image/png" href="/img/smalllogo.png" />
+        <link rel="stylesheet" href="/css/profileEdit.css" />
+        <link rel="stylesheet" href="/css/header.css" />
+    </head>
+    <body>
+        <header>
+            <h2 class="logo">GAINS & GRAINS</h2>
+            <img
+                src="/img/smalllogo.png"
+                class="small-logo"
+                alt="Small Gains & Grains Logo"
+                height="30px"
+            />
+            <nav>
+                <ul class="nav_links">
+                    <li><a class="navlink" href="/">Home</a></li>
+                    <% if (!currentUser) { %>
+                    <li><a class="navlink" href="/login">Log In</a></li>
+                    <li><a class="navlink" href="/signup">Sign Up</a></li>
+                    <% } else { %>
+                    <li><a class="navlink" href="/user/dashboard">Dashboard</a></li>
+                    <li><a class="navlink" href="/logout">Logout</a></li>
+                    <% } %>
+                    <li><a class="navlink" href="/#about/">About</a></li>
+                    <li><a class="cta cont" href="/contact">Contact</a></li>
+                </ul>
+            </nav>
+            <p class="menu cta">Menu</p>
+        </header>
+
+        <div id="mobile_menu" class="overlay">
+            <a class="close">&times;</a>
+            <div class="overlay_content">
+                <a href="#">Home</a>
+                <% if (!currentUser) { %>
+                <a href="/login">Log In</a>
+                <a href="/signup">Sign Up</a>
+                <% } else { %>
+                <a href="/user/dashboard">Dashboard</a>
+                <a href="/logout">Logout</a>
+                <% } %>
+                <a href="/#about/">About</a>
+                <a href="/contact">Contact</a>
+            </div>
+        </div>
+
+        <div class="container">
+            <h1>Edit Profile</h1>
+            <div class="profile-card">
+                <form action="/user/profile/edit" method="POST">
+                    <div class="profile-content">
+                        <label for="name">Name:</label>
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            value="<%= currentUser.name %>"
+                            required
+                        />
+
+                        <label for="username">Username:</label>
+                        <input
+                            type="text"
+                            id="username"
+                            name="username"
+                            value="<%= currentUser.username %>"
+                            required
+                        />
+
+                        <label for="email">Email:</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            value="<%= currentUser.email %>"
+                            required
+                        />
+
+                        <label for="phoneNumber">Phone Number:</label>
+                        <input
+                            type="text"
+                            id="phoneNumber"
+                            name="phoneNumber"
+                            value="<%= currentUser.phoneNumber %>"
+                        />
+
+                        <label for="birthDate">Birth Date:</label>
+                        <input
+                            type="date"
+                            id="birthDate"
+                            name="birthDate"
+                            value="<%= currentUser.birthDate ? new Date(currentUser.birthDate).toISOString().substring(0, 10) : '' %>"
+                        />
+
+                        <label for="age">Age:</label>
+                        <input type="number" id="age" name="age" value="<%= currentUser.age %>" />
+
+                        <label for="weight">Weight (lbs):</label>
+                        <input
+                            type="number"
+                            id="weight"
+                            name="weight"
+                            value="<%= currentUser.weight %>"
+                        />
+
+                        <label for="heightFeet">Height (ft):</label>
+                        <input
+                            type="number"
+                            id="heightFeet"
+                            name="height[feet]"
+                            value="<%= currentUser.height ? currentUser.height.feet : '' %>"
+                        />
+
+                        <label for="heightInches">Height (in):</label>
+                        <input
+                            type="number"
+                            id="heightInches"
+                            name="height[inches]"
+                            value="<%= currentUser.height ? currentUser.height.inches : '' %>"
+                        />
+                    </div>
+                    <button type="submit" class="btn">Update Profile</button>
+                </form>
+            </div>
+            <a href="/user/profile" class="btn">Back to Profile</a>
+        </div>
+
+        <script src="/js/mobilemenu.js"></script>
+    </body>
+</html>
