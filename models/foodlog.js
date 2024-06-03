@@ -6,7 +6,7 @@ const foodSchema = new mongoose.Schema(
         meals: [
             {
                 name: { type: String, required: true },
-                calories: { type: Number, required: true },
+                calories: { type: Number },
                 protein: { type: Number },
                 carbs: { type: Number },
                 fats: { type: Number },

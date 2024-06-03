@@ -7,6 +7,7 @@
         <link rel="icon" type="image/png" href="/img/smalllogo.png" />
         <link rel="stylesheet" href="/css/foodLog.css" />
         <link rel="stylesheet" href="/css/header.css" />
+        <script src="/js/nutritionalData.js"></script>
     </head>
     <body>
         <header>
@@ -61,15 +62,22 @@
                                     <span class="details">Meal Name</span>
                                     <input
                                         type="text"
+                                        id="foodName"
                                         name="meals[0][name]"
                                         placeholder="Enter meal name"
                                         required
                                     />
                                 </div>
+                                <div class="button">
+                                    <button type="button" onclick="nutritionalData()">
+                                        Autofill Nutritional Data
+                                    </button>
+                                </div>
                                 <div class="input-box">
                                     <span class="details">Calories</span>
                                     <input
                                         type="number"
+                                        id="calories"
                                         name="meals[0][calories]"
                                         placeholder="Enter calories"
                                         required
@@ -79,6 +87,7 @@
                                     <span class="details">Protein (g)</span>
                                     <input
                                         type="number"
+                                        id="protein"
                                         name="meals[0][protein]"
                                         placeholder="Enter protein in grams"
                                     />
@@ -87,6 +96,7 @@
                                     <span class="details">Carbs (g)</span>
                                     <input
                                         type="number"
+                                        id="carbs"
                                         name="meals[0][carbs]"
                                         placeholder="Enter carbs in grams"
                                     />
@@ -95,6 +105,7 @@
                                     <span class="details">Fats (g)</span>
                                     <input
                                         type="number"
+                                        id="fats"
                                         name="meals[0][fats]"
                                         placeholder="Enter fats in grams"
                                     />
