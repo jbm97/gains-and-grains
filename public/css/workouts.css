@@ -9,6 +9,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    box-sizing: border-box;
 }
 
 h1 {
@@ -92,6 +93,76 @@ h1 {
 }
 
 .btn:hover {
+    background-color: var(--accent-color);
+}
+
+.new-workout .title,
+.edit-workout .title {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--main-color);
+}
+
+.new-workout .content,
+.edit-workout .content {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.new-workout .input-box,
+.edit-workout .input-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.new-workout .input-box .details,
+.edit-workout .input-box .details {
+    font-weight: 500;
+    margin-bottom: 3px;
+    color: #333;
+    font-size: 0.9rem;
+}
+
+.new-workout .input-box input,
+.edit-workout .input-box input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    width: calc(200% - 16px);
+    box-sizing: border-box;
+}
+
+.new-workout .button,
+.edit-workout .button {
+    text-align: center;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.new-workout .button input,
+.edit-workout .button input {
+    background-color: var(--main-color);
+    color: white;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    width: 100%;
+}
+
+.new-workout .button input:hover,
+.edit-workout .button input:hover {
     background-color: var(--accent-color);
 }
 
