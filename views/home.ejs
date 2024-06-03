@@ -34,7 +34,7 @@
                     <li><a class="navlink" href="/user/dashboard">Dashboard</a></li>
                     <li><a class="navlink" href="/logout">Logout</a></li>
                     <% } %>
-                    <li><a class="navlink" href="/#about/">About</a></li>
+                    <li><a class="navlink" href="#about">About</a></li>
                     <li><a class="cta cont" href="/contact">Contact</a></li>
                 </ul>
             </nav>
@@ -52,7 +52,7 @@
                 <a href="/user/dashboard">Dashboard</a>
                 <a href="/logout">Logout</a>
                 <% } %>
-                <a href="/#about/">About</a>
+                <a href="#about">About</a>
                 <a href="/contact">Contact</a>
             </div>
         </div>
@@ -86,9 +86,9 @@
                         <div class="feature">GOAL TRACKING</div>
                         <div class="des">
                             Stay focused and motivated with our Goal Tracking feature. Set
-                            personalized fitness goals and track your progress. Whether it's weight loss, muscle gain, or running a
-                            marathon, our Goal Tracking helps you stay on course and celebrate your
-                            achievements.
+                            personalized fitness goals and track your progress. Whether it's weight
+                            loss, muscle gain, or running a marathon, our Goal Tracking helps you
+                            stay on course and celebrate your achievements.
                         </div>
                         <div class="buttons">
                             <% if(!currentUser) { %>
@@ -131,41 +131,22 @@
             </div>
         </div>
 
-        <section class="features">
-            <div class="photo-box">
-                <img src="https://via.placeholder.com/1200" alt="Photo 1" />
-                <div class="overlay-text">Photo 1 Description</div>
-            </div>
-            <div class="photo-box">
-                <img src="https://via.placeholder.com/1200" alt="Photo 2" />
-                <div class="overlay-text">Photo 2 Description</div>
-            </div>
-            <div class="photo-box">
-                <img src="https://via.placeholder.com/1200" alt="Photo 3" />
-                <div class="overlay-text">Photo 3 Description</div>
-            </div>
-            <div class="photo-box">
-                <img src="https://via.placeholder.com/1200" alt="Photo 4" />
-                <div class="overlay-text">Photo 4 Description</div>
-            </div>
-        </section>
-
-        <section class="about">
-            <div class="photo-box">
-                <img src="https://via.placeholder.com/1200" alt="Photo 1" />
-                <div class="overlay-text">Photo 1 Description</div>
-            </div>
-            <div class="photo-box">
-                <img src="https://via.placeholder.com/1200" alt="Photo 2" />
-                <div class="overlay-text">Photo 2 Description</div>
-            </div>
-            <div class="photo-box">
-                <img src="https://via.placeholder.com/1200" alt="Photo 3" />
-                <div class="overlay-text">Photo 3 Description</div>
-            </div>
-            <div class="photo-box">
-                <img src="https://via.placeholder.com/1200" alt="Photo 4" />
-                <div class="overlay-text">Photo 4 Description</div>
+        <section class="about" id="about">
+            <div class="about-container">
+                <div class="photo-box2">
+                    <img src="/img/mainlogo.png" alt="Gains & Grains Logo" />
+                </div>
+                <div class="about-text">
+                    <h2>ABOUT <span>US</span></h2>
+                    <p>
+                        Welcome to Gains & Grains, your ultimate fitness companion. Our mission is
+                        to help you achieve your fitness goals through comprehensive workout and
+                        food logging features. Whether you're aiming to build muscle, lose weight,
+                        or maintain a healthy lifestyle, our platform provides you with the tools
+                        and support you need. Track your workouts, monitor your dietary intake, set
+                        personalized goals, and stay motivated with Gains & Grains.
+                    </p>
+                </div>
             </div>
         </section>
 
