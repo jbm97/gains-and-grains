@@ -54,12 +54,14 @@
             <h1>Food Log Details</h1>
             <div class="card">
                 <div class="card-content">
-                    <h3><%= foodLog.meals[0].name %></h3>
-                    <p>Date: <%= new Date(foodLog.meals[0].dateConsumed).toLocaleDateString() %></p>
-                    <p>Calories: <%= foodLog.meals[0].calories %> cal</p>
-                    <p>Protein: <%= foodLog.meals[0].protein %> g</p>
-                    <p>Carbs: <%= foodLog.meals[0].carbs %> g</p>
-                    <p>Fats: <%= foodLog.meals[0].fats %> g</p>
+                    <% foodLog.meals.forEach(meal => { %>
+                    <h3><%= meal.name %></h3>
+                    <p>Date: <%= new Date(meal.dateConsumed).toLocaleDateString() %></p>
+                    <p>Calories: <%= meal.calories %> cal</p>
+                    <p>Protein: <%= meal.protein %> g</p>
+                    <p>Carbs: <%= meal.carbs %> g</p>
+                    <p>Fats: <%= meal.fats %> g</p>
+                    <% }) %>
                 </div>
                 <div class="actions">
                     <a href="/user/food-log/<%= foodLog._id %>/edit" class="btn">Edit</a>

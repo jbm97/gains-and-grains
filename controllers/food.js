@@ -40,7 +40,7 @@ router.post("/", isLoggedIn, async (req, res) => {
 // View specific food log
 router.get("/:id", isLoggedIn, async (req, res) => {
     try {
-        const foodLog = await Food.findO(req.params.id);
+        const foodLog = await Food.findById(req.params.id);
         res.render("foodLogs/show", { foodLog });
     } catch (error) {
         console.error("Error getting the food log:", error);
