@@ -23,7 +23,6 @@ router.get("/new", isLoggedIn, (req, res) => {
 // POST new workout
 router.post("/", isLoggedIn, async (req, res) => {
     try {
-        // console.log("body:", req.body);
         const newWorkout = new Workout({
             userId: req.user._id,
             name: req.body.name,
@@ -44,7 +43,6 @@ router.post("/", isLoggedIn, async (req, res) => {
 router.get("/:id", isLoggedIn, async (req, res) => {
     try {
         const workout = await Workout.findById(req.params.id);
-        // console.log("workout:", workout);
         res.render("workouts/show", { workout });
     } catch (error) {
         console.error("Error getting workout:", error);

@@ -50,16 +50,12 @@ const userSchema = new mongoose.Schema(
 );
 
 userSchema.pre("save", function (next) {
-    console.log("------- PASSWORD -------", this.password); // might delete later...
     if (this.isModified("password") || this.isNew) {
         this.password = bcrypt.hashSync(this.password, 12);
     }
-    console.log("------- HASH -------", this.password); // might delete later...
     next();
 });
 
-// create the model and export it
 const User = mongoose.model("User", userSchema);
 
-// make this model avaliable for the index file
 module.exports = User;

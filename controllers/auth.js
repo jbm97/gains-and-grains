@@ -5,18 +5,17 @@ const passport = require("../config/passport-config");
 // import User model
 const { User } = require("../models");
 
-// ======== GET ROUTES ===============
-// --- go to signup page ---
+// signup
 router.get("/signup", (req, res) => {
     res.render("auth/signup", {});
 });
 
-// --- go to login page ---
+// login
 router.get("/login", (req, res) => {
     res.render("auth/login", {});
 });
 
-// --- log the user out of app ---
+// logout
 router.get("/logout", (req, res) => {
     res.locals.currentUser = null;
     req.logOut((error) => {
@@ -30,7 +29,6 @@ router.get("/logout", (req, res) => {
 });
 
 // ======== POST ROUTES ===============
-// --- grab data from req.body + create user + redirect + error handling ---
 router.post("/signup", async (req, res) => {
     try {
         const findUser = await User.findOne({
@@ -54,7 +52,6 @@ router.post("/signup", async (req, res) => {
             res.redirect("/signup");
         }
     } catch (error) {
-        console.log("----- ERROR IN SIGNUP POST ----", error);
         if (error.errors) {
             for (let key in error.errors) {
                 req.flash("error", error.errors[key].message);
@@ -68,7 +65,7 @@ router.post("/signup", async (req, res) => {
     }
 });
 
-// --- post to login user in ---
+// post to login
 router.post(
     "/login",
     passport.authenticate("local", {

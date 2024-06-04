@@ -13,9 +13,6 @@ router.post("/search", async (req, res) => {
                 },
             }
         );
-
-        // console.log(response.data)
-        // console.log(response.data[0].calories)
         
         if (response.data && response.data.length > 0) {
             const nutrients = response.data[0];

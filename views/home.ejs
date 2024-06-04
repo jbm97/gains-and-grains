@@ -9,8 +9,7 @@
         <link rel="stylesheet" href="/css/header.css" />
     </head>
     <body>
-        <% console.log('---- MESSAGES ------', alerts.success) %> <% if (alerts.success) { %> <%
-        alerts.success.forEach(msg => { %>
+        <% if (alerts.success) { %> <% alerts.success.forEach(msg => { %>
         <div class="alert alert-success"><%= msg %></div>
         <% }) %> <% } %> <% if (alerts.error) { %> <% alerts.error.forEach(msg => { %>
         <div class="alert alert-danger"><%= msg %></div>
