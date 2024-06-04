@@ -142,7 +142,7 @@ const foodSchema = new mongoose.Schema(
 );
 ```
 
-### Contact/Message Form
+### Contact/Message
 
 ```ruby
 const contactSchema = new mongoose.Schema(
@@ -177,9 +177,9 @@ I had a few other ideas I wanted to implement to this but I initially thought we
 
 If I do come back to this in the future I'd like to set up an API call that will search workouts/exercises and be able to input values such as "Targeted Muscle" or "Muscle Group", kind of how like the food API will autofill nutritional info. I'd also like it to display a photo of the workout and or a video/text that explains it.
 
-Next, I'd like to have some sort of serving size available for the food log as when you autofill the nutritional data it doesn't tell you a portion size or anything, so you don't really know how much calories one serving is. Didn't think of this until the end of assignment.
+Next, I'd like to have some sort of serving size available for the food log as when you autofill the nutritional data it doesn't tell you a portion size or anything, so you don't really know how much calories one serving is. Didn't think of this until the end of assignment. (After further investigation of the API and looking back at how I was grabbing info, it seems the API provides nutritional data for 100g of whatever food is searched, so I'd have to work with that and come up with some sort of math equation that will calculate everything based on serving size input.)
 
-I would also like to expand the home page with more information and photos, potentially similar to the dashboard in terms of content but change how it looks and have an explanation of the feature.
+I would also like to expand the home page with more information and photos, not entirely sure what of though, but something to make it have a little more substence I guess.
 
 Another thing is that I'd like to get proper error/success pop ups working, did not end up getting to that and just used flash messages and I don't think it looks that good.
 
@@ -191,5 +191,7 @@ Finally, I was hoping on implementing a better "Goal Tracking" feature where it 
 Goal does not save when the achieved box is checked when editing the goal.
 
 "Add Meal" and "Add Exercise" buttons on their respective new and edit pages do not work as there was not a function made for the button to run.
+
+On the Dashboard page, the " 'S DASHBOARD " text does not respond as intended when the window height is under about 650 pixels, it gets covered by the cards.
 
 
