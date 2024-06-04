@@ -194,4 +194,4 @@ Goal does not save when the achieved box is checked when editing the goal.
 
 On the Dashboard page, the " 'S DASHBOARD " text does not respond as intended when the window height is under about 650 pixels, it gets covered by the cards.
 
-
+Carousel nav displays when the overlay nav menu is open during smaller view widths. Not the worst thing ever but shouldn't be there.
