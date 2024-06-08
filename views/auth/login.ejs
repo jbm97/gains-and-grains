@@ -10,7 +10,6 @@
     </head>
     <body>
         <% if (alerts.success) { %> <% alerts.success.forEach(msg => { %>
-
         <div class="alert alert-success"><%= msg %></div>
         <% }) %> <% } %> <% if (alerts.error) { %> <% alerts.error.forEach(msg => { %>
         <div class="alert alert-danger"><%= msg %></div>

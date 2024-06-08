@@ -177,9 +177,7 @@ If I do come back to this in the future I'd like to set up an API call that will
 
 I would also like to expand the home page with more information and photos, not entirely sure what of though, but something to make it have a little more substence I guess.
 
-Another thing is that I'd like to get proper error/success pop ups working, did not end up getting to that and just used flash messages and I don't think it looks that good.
-
-I'd also like to add in some functions that will add additional meals and exercises when making them. Currently there is a button there but it does not actually do anything. Ideally it would just create another set of inputs for the next food item/exercise and then they all save together. 
+Another thing is to add in some functions that will add additional meals and exercises when making them. Currently there is a button there but it does not actually do anything. Ideally it would just create another set of inputs for the next food item/exercise and then they all save together. 
 
 Finally, I was hoping on implementing a better "Goal Tracking" feature where it would include some sort of progress bar and track things automatically. For example, if your goal was to workout 5 times in one week it would track the number of workout logs made in that week and automatically complete the goal when the target is hit. 
 
