@@ -9,6 +9,12 @@
         <link rel="stylesheet" href="/css/header.css" />
     </head>
     <body>
+        <% if (alerts.success) { %> <% alerts.success.forEach(msg => { %>
+        <div class="alert alert-success"><%= msg %></div>
+        <% }) %> <% } %> <% if (alerts.error) { %> <% alerts.error.forEach(msg => { %>
+        <div class="alert alert-danger"><%= msg %></div>
+        <% }) %> <% } %>
+
         <header>
             <h2 class="logo">GAINS & GRAINS</h2>
             <img
@@ -51,7 +57,7 @@
         </div>
 
         <h1><%= currentUser.username.toUpperCase() %>'S DASHBOARD</h1>
-        
+
         <div class="container">
             <div class="dashboard">
                 <div class="row">
