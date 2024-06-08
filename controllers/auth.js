@@ -44,8 +44,8 @@ router.post("/signup", async (req, res) => {
             });
             await newUser.save();
             passport.authenticate("local", {
-                successRedirect: "/login",
                 successFlash: `Welcome ${newUser.name}! Account created, please login`,
+                successRedirect: "/login",
             })(req, res);
         } else {
             req.flash("error", "Email or username already exists. Please try again.");
@@ -69,10 +69,10 @@ router.post("/signup", async (req, res) => {
 router.post(
     "/login",
     passport.authenticate("local", {
-        successRedirect: "/user/dashboard",
-        failureRedirect: "/login",
         successFlash: "Welcome Back to Gains & Grains!",
         failureFlash: "Username or password is incorrect. Please try again",
+        successRedirect: "/user/dashboard",
+        failureRedirect: "/login",
     })
 );
 
