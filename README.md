@@ -12,7 +12,7 @@ Run the following command in your terminal after navigating to this repo: npm ru
 
 Open localhost:3000 in your browser, and the repo in VSCode to edit.
 
-*This will not actually work due to the .gitignore files"
+*This will not actually work due to the .gitignore files*
 
 ## User Stories
 
@@ -173,11 +173,7 @@ Happy logging!
 
 ## Future Considerations
 
-I had a few other ideas I wanted to implement to this but I initially thought we had quite a bit more time to work on this. 
-
 If I do come back to this in the future I'd like to set up an API call that will search workouts/exercises and be able to input values such as "Targeted Muscle" or "Muscle Group", kind of how like the food API will autofill nutritional info. I'd also like it to display a photo of the workout and or a video/text that explains it.
-
-Next, I'd like to have some sort of serving size available for the food log as when you autofill the nutritional data it doesn't tell you a portion size or anything, so you don't really know how much calories one serving is. Didn't think of this until the end of assignment. (After further investigation of the API and looking back at how I was grabbing info, it seems the API provides nutritional data for 100g of whatever food is searched, so I'd have to work with that and come up with some sort of math equation that will calculate everything based on serving size input.)
 
 I would also like to expand the home page with more information and photos, not entirely sure what of though, but something to make it have a little more substence I guess.
 
@@ -185,7 +181,7 @@ Another thing is that I'd like to get proper error/success pop ups working, did 
 
 I'd also like to add in some functions that will add additional meals and exercises when making them. Currently there is a button there but it does not actually do anything. Ideally it would just create another set of inputs for the next food item/exercise and then they all save together. 
 
-Finally, I was hoping on implementing a better "Goal Tracking" feature where it would include some sort of progress bar and track things automatically. For example, if your goal was to workout 5 times in one week it would track the number of workout logs made in that week and automatically complete the goal when the target is hit.
+Finally, I was hoping on implementing a better "Goal Tracking" feature where it would include some sort of progress bar and track things automatically. For example, if your goal was to workout 5 times in one week it would track the number of workout logs made in that week and automatically complete the goal when the target is hit. 
 
 ## Known Issues
 Goal does not save when the achieved box is checked when editing the goal.
@@ -195,3 +191,5 @@ Goal does not save when the achieved box is checked when editing the goal.
 On the Dashboard page, the " 'S DASHBOARD " text does not respond as intended when the window height is under about 650 pixels, it gets covered by the cards.
 
 Carousel nav displays when the overlay nav menu is open during smaller view widths. Not the worst thing ever but shouldn't be there.
+
+API nutritional information is based off of 100g serving. Currently no way to implement a serving size to account for that.
