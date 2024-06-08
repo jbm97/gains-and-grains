@@ -2,7 +2,7 @@
 
 SEBPT 220 Project 2: Gains & Grains.
 
-To view, please visit: (will update when deployed)
+To view, please visit: https://gains-and-grains.onrender.com
 
 ## How to Install
 
